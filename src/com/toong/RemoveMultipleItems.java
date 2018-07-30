@@ -4,22 +4,11 @@ import java.util.*;
 
 public class RemoveMultipleItems {
 
-    public static <E> boolean removeAll(List<E> list, Object o) {
-        Iterator<E> it = list.iterator();
-        if (o == null) {
-            while (it.hasNext()) {
-                if (it.next() == null) {
-                    it.remove();
-                }
-            }
-        } else {
-            while (it.hasNext()) {
-                if (o.equals(it.next())) {
-                    it.remove();
-                }
-            }
-        }
-        return false;
+    public static void main(String[] args) {
+        String[] inputs = new String[]{"a", "b", "c", "d"};
+
+        CopyToNewList copyToNewListTest = new CopyToNewList();
+        copyToNewListTest.removeElements2(inputs, "a");
     }
 
 
@@ -36,7 +25,7 @@ public class RemoveMultipleItems {
 
         static String[] removeElements2(String[] input, String deleteItem) {
             List<String> result = Arrays.asList(input);
-            removeAll(result, deleteItem);
+            result.removeAll(Collections.singleton(deleteItem));
             return result.toArray(new String[0]);
         }
     }
